@@ -1,6 +1,6 @@
 #include "filler.h"
 
-int	ai(f_list *node)
+int		ai(void)
 {
 	return (1);
 }

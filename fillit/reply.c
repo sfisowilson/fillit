@@ -1,6 +1,9 @@
 #include "filler.h"
 
-void	reply(void)
+void	reply(f_list *node)
 {
-	ft_putendl("8 2");
+	ft_putnbr(node->user_pos_y);
+	ft_putchar(' ');
+	ft_putnbr(node->user_pos_x);
+	ft_putchar('\n');
 }

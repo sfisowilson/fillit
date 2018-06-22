@@ -1,6 +1,6 @@
 #include "filler.h"
 
-void	reply(void)
+void	reply_end(void)
 {
 	ft_putendl("0 0");
 }
