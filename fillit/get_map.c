@@ -1,13 +1,15 @@
 #include "filler.h"
 #include <stdlib.h>
 
+void	set_calc(f_list **node);
+
 char	*get_map(f_list **node, char *line)
 {
 	int i;
 	int	len;
 	int	j;
 	
-	fprintf(stderr, "first line in get map == %s\n", line);
+//	fprintf(stderr, "first line in get map == %s\n", line);
 	i = 0;
 	if ((line)[0] == ' ')
 		get_next_line(0, &line);
@@ -25,10 +27,47 @@ char	*get_map(f_list **node, char *line)
 			(*node)->user_pos_x = j;
 		}
 
-		fprintf(stderr, "%i line added to map == %s\n", i, (*node)->map[i]);
+//		fprintf(stderr, "%i line added to map == %s\n", i, (*node)->map[i]);
 		get_next_line(0, &line);
 		i++;
 	}
-	fprintf(stderr, "line returned from  map == %s\n", line);
+	set_calc(node);
+//	fprintf(stderr, "line returned from  map == %s\n", line);
 	return (line);
+}
+void	get_possition(f_list **node)
+{
+	int y;
+	int x;
+
+	y = 0;
+	while ((*node)->map_y > y)
+	{
+		if (ft_strchr((*node)->map[y], (*node)->user))
+		{
+			x = 0;
+			while ((*node)->map[y][x] != (*node)->user)
+				x++;
+			(*node)->user_pos_y = y;
+			(*node)->user_pos_x = x;
+		}
+		else if (ft_strchr((*node)->map[y], (*node)->opp))
+		{
+			x = 0;
+			while ((*node)->map[y][x] != (*node)->opp)
+				x++;
+			(*node)->opp_pos_y = y;
+			(*node)->opp_pos_x = x;
+		}
+		y++;
+	}
+}
+
+void set_calc(f_list **node)
+{
+	get_possition(node);
+	if ((*node)->user_pos_y > (*node)->opp_pos_y)
+		(*node)->calc = 1;
+	else if ((*node)->user_pos_y < (*node)->opp_pos_y)
+		(*node)->calc = 0;
 }
