@@ -1,4 +1,8 @@
-seed = 0
+seed = 2788
+O: error on input
+./sfiso.filler: Segfault at 0
+X: error on input
+./sfiso.filler: Segfault at 0
 ./sfiso.filler won
 Score:
-1AGAINST1
+0AGAINST0

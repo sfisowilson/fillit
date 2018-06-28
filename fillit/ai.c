@@ -15,12 +15,13 @@ int		aidr(f_list **node)
 			{
 				(*node)->play_y = y;
 				(*node)->play_x = x;
+				return (1);
 			}
 			x++;
 		}
 		y++;
 	}
-	return (1);
+	return (0);
 }
 
 int		aidl(f_list **node)
@@ -38,12 +39,13 @@ int		aidl(f_list **node)
 			{
 				(*node)->play_y = y;
 				(*node)->play_x = x;
+				return (1);
 			}
 			x--;
 		}
 		y++;
 	}
-	return (1);
+	return (0);
 }
 
 int		aiul(f_list **node)
@@ -61,12 +63,13 @@ int		aiul(f_list **node)
 			{
 				(*node)->play_y = y;
 				(*node)->play_x = x;
+				//return (1);
 			}
 			x--;
 		}
 		y--;
 	}
-	return (1);
+	return (0);
 }
 
 int		aiur(f_list **node)
@@ -84,31 +87,24 @@ int		aiur(f_list **node)
 			{
 				(*node)->play_y = y;
 				(*node)->play_x = x;
+				return (1);
 			}
 			x++;
 		}
 		y--;
 	}
-	return (1);
+	return (0);
 }
 
 int	ai(f_list **node)
 {
 	if ((*node)->calc == 0)
-	{
-		(aidl(node));
-		(aidr(node));
-		(aiur(node));
-		(aiul(node));
-		return (1);
-	}
-	else if((*node)->calc == 1)
-	{
-		(aiur(node));
-		(aiul(node));
-		(aidr(node));
-		(aidl(node));
-		return (1);
-	}
-	return (0);
+		aiul(node);
+	if ((*node)->calc == 1)
+		aidr(node);
+	if ((*node)->calc == 2)
+		aidl(node);
+	if ((*node)->calc == 3)
+		aiur(node);
+	return (1);
 }

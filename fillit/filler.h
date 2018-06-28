@@ -7,6 +7,7 @@ typedef struct	f_list
 {
 	char		**map;
 	char		**token;
+	char		**ttoken;
 	char		user;
 	char		opp;
 	int			map_y;
@@ -20,10 +21,13 @@ typedef struct	f_list
 	int			play_y;
 	int			calc;
 	int			play_x;
-	int			trim_y;
-	int			trim_x;
+	int			y_final;
+	int			x_final;
+	int			y_from;
+	int			x_from;
 }				f_list;
-
+void			trimming_x(f_list **node);
+void			trimming_y(f_list **node);
 int				get_players(f_list **node, char *line);
 int				get_mapsize(f_list **node, char *line);
 int				get_tokensize(f_list **node, char *line);
@@ -32,7 +36,7 @@ char			*get_token(f_list **node, char *line);
 int				ai(f_list **node);
 int				try_token(f_list **node, int my, int mx);
 int				check_token(f_list **node, int my, int mx);
-void			reply(f_list **node);
+int				reply(f_list **node);
 void			reply_end(void);
 void			freeit(f_list **node);
 void			trimming(f_list **node);

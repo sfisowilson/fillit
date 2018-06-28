@@ -6,15 +6,15 @@ int	main(void)
 	f_list	*node;
 	char	*line;
 
-//	int i = 3; //remove
+	//int i = 3; //remove
 
 	node = (f_list*)malloc(sizeof(f_list));
 	get_next_line(0, &line);
 	//fprintf(stderr,"the first line = %s\n", line);
 	if (get_players(&node, line))
 		node->opp = (node->user == 'O')? 'X' : 'O';
-//	while (i)
-//	{
+	while (1)
+	{
 		get_next_line(0, &line);
 		//fprintf(stderr,"My user character = %c\n", node->user);
 		//fprintf(stderr,"the opp  character = %c\n", node->opp);
@@ -36,8 +36,8 @@ int	main(void)
 		
 		line = get_token(&node, line);
 		trimming(&node);
-		fprintf(stderr,"trim y = %i\n", node->trim_y);
-		fprintf(stderr,"trim x = %i\n", node->trim_x);
+		//fprintf(stderr,"trim y = %i\n", node->trim_y);
+		//fprintf(stderr,"trim x = %i\n", node->trim_x);
 	
 		if(ai(&node))
 		{
@@ -47,7 +47,7 @@ int	main(void)
 		}
 		else
 			reply_end();
-//		i--;
-//	}
+	//	i--;
+	}
 	return (0);
 }

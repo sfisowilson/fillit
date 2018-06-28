@@ -17,11 +17,11 @@ int	check_token(f_list **node, int my, int mx)
 		{
 			if ((((*node)->map[my + y][mx + x] == (*node)->user) ||\
 				(*node)->map[my + y][mx + x] == (*node)->user + 32) &&\
-				((*node)->token[y][x] == '*'))
+				((*node)->ttoken[y][x] == '*'))
 				shell_try++;
 			if ((((*node)->map[my + y][mx + x] == (*node)->opp) ||\
 				(*node)->map[my + y][mx +  x] == (*node)->opp + 32) &&\
-				((*node)->token[y][x] == '*'))
+				((*node)->ttoken[y][x] == '*'))
 				return (0);
 			x++;
 		}
